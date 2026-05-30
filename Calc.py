@@ -1,5 +1,5 @@
 """
-Calc.py
+Python Abgabe: 
 Addition (Der Benutzer gibt zwei Zahlen ein und bekommt die Summe ausgegeben)
 Subtraktion
 Division
@@ -29,7 +29,6 @@ def mean(nums):
 def circle_circumference(r):
     """Return circumference of a circle given radius r using a custom PI constant."""
     # The formula is C = 2 * pi * r.
-    # We do not use Python's math module here; instead we use our own PI constant.
     return 2 * PI * r
 
 
@@ -51,15 +50,15 @@ def sqrt_newton(x, iterations=40):
     return guess
 
 
-# --- Page title and short description ---
+# Page title and short description:
 st.title("Calculator — Ruby edition")
 st.write(
     "Calculator app built for fIT in IT Python course by Ruby Claes"
 )
 
 
-# --- Choose operation ---
-# We present a selectbox so the user picks which operation they want.
+# Choose operation:
+# present a selectbox so the user picks which operation they want.
 # The selected operation controls which inputs are shown and how the result
 # is computed when the user clicks the Calculate button.
 op = st.selectbox(
@@ -78,11 +77,7 @@ op = st.selectbox(
     ),
 )
 
-# --- Inputs ---
-# Different operations require different inputs. For two-number operations
-# (like + - * / and Pythagoras) we show two numeric inputs side-by-side.
-# For list operations we show a single text input where the user types numbers
-# separated by commas. For circle circumference we show a single radius input.
+# Inputs:
 
 # Initialize variables used later
 n1 = None
@@ -94,7 +89,7 @@ if op == "Circumference of circle":
     # Only radius is needed for circumference: C = 2 * pi * r
     radius = st.number_input("Radius", value=1.0)
 elif op.startswith("Pythagoras"):
-    # For Pythagoras we label the inputs `a` and `b` so it's clearer.
+    # For Pythagoras label the inputs `a` and `b` so it's clearer.
     col_a, col_b = st.columns(2)
     with col_a:
         n1 = st.number_input("Side a", value=3.0)
@@ -112,7 +107,7 @@ else:
         n2 = st.number_input("Number 2", value=0.0)
 
 
-# --- Helper functions ---
+# Helper functions:
 
 def parse_list(text):
     """
@@ -150,7 +145,7 @@ def format_result(val, prec=6):
         pass
     return str(val)
 
-# --- Calculation and error handling ---
+# Calculation and error handling:
 # When the user clicks the Calculate button, we examine the selected operation
 # and the inputs the user provided. We compute the result or collect an error
 # message to show to the user.
@@ -226,7 +221,7 @@ if st.button("Calculate"):
         error = f"Unexpected error: {e}"
 
 
-# --- Show result or error to the user ---
+# Show result or error to the user:
 if error:
     st.error(error)
 elif result is not None:
